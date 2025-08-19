@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function BrandMarketing() {
   const projects = [
     {
@@ -22,11 +23,13 @@ export default function BrandMarketing() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
         {projects.map((proj, idx) => (
           <div key={idx} className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col items-center">
-            <img
-              src={proj.img}
-              alt={proj.title}
-              className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-            />
+            <Link to="/brand-marketing/gallery">
+              <img
+                src={proj.img}
+                alt={proj.title}
+                className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+              />
+            </Link>
             <div className="p-6 w-full">
               <h2 className="text-2xl font-semibold mb-2">{proj.title}</h2>
               <p className="text-gray-600">{proj.desc}</p>

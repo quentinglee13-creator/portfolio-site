@@ -8,16 +8,22 @@ import "swiper/css/navigation";
 
 function App() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 scroll-smooth">
+    <>
+      <main className="min-h-screen bg-white text-gray-900 scroll-smooth">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-4 shadow-md sticky top-0 bg-white z-50">
-        <h1 className="text-2xl font-bold tracking-wide">Quentin Galileo</h1>
-        <ul className="flex space-x-6 text-lg font-medium">
+      <nav className="flex justify-end items-center px-4 sm:px-8 py-4 shadow-md sticky top-0 bg-white z-50">
+        <ul className="hidden sm:flex space-x-4 sm:space-x-6 text-base sm:text-lg font-medium">
           <li><a href="#about" className="hover:text-gray-500">About</a></li>
           <li><a href="#portfolio" className="hover:text-gray-500">Portfolio</a></li>
           <li><a href="#photos" className="hover:text-gray-500">Photos</a></li>
           <li><a href="#contact" className="hover:text-gray-500">Contact</a></li>
         </ul>
+        {/* Mobile menu button (future: add menu functionality) */}
+        <button className="sm:hidden ml-auto p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400" aria-label="Open menu">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </nav>
 
       {/* Hero Section */}
@@ -25,19 +31,19 @@ function App() {
         initial={{ opacity: 0, y: 30 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 1 }}
-        className="flex flex-col items-center justify-center text-center py-32 px-8 bg-gray-50"
+        className="flex flex-col items-center justify-center text-center py-20 sm:py-32 px-4 sm:px-8 bg-gray-50"
       >
-        <h2 className="text-4xl sm:text-6xl font-bold mb-6">
+        <h2 className="text-3xl sm:text-6xl font-bold mb-4 sm:mb-6">
           Quentin Galileo Lee <br />
-          <span className="text-2xl sm:text-4xl font-semibold">Artist • Entrepreneur</span>
+          <span className="text-lg sm:text-4xl font-semibold">Artist • Entrepreneur</span>
         </h2>
-        <p className="max-w-2xl text-lg text-gray-600 mb-8">
+        <p className="max-w-xs sm:max-w-2xl text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
           Welcome to my personal website — a space where I share my work, passions, and projects. 
           Whether it’s art, modeling, acting, or business ventures, this is where it all comes together.
         </p>
         <a 
           href="#portfolio" 
-          className="px-6 py-3 bg-black text-white rounded-2xl shadow-lg hover:bg-gray-800 transition"
+          className="px-4 sm:px-6 py-2 sm:py-3 bg-black text-white rounded-2xl shadow-lg hover:bg-gray-800 transition text-base sm:text-lg"
         >
           View My Work
         </a>
@@ -149,7 +155,11 @@ function App() {
           Email Me
         </a>
       </motion.section>
-    </main>
+      </main>
+      <footer className="w-full py-6 bg-gray-100 text-center text-gray-600 text-sm font-medium border-t">
+        Quentin Galileo Lee
+      </footer>
+    </>
   );
 }
 
