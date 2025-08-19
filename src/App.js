@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
         className="flex flex-col items-center justify-center text-center py-32 px-8 bg-gray-50"
       >
         <h2 className="text-4xl sm:text-6xl font-bold mb-6">
-          Artist • Model • Actor • Entrepreneur
+          Quentin Galileo Lee <br />
+          <span className="text-2xl sm:text-4xl font-semibold">Artist • Entrepreneur</span>
         </h2>
         <p className="max-w-2xl text-lg text-gray-600 mb-8">
           Welcome to my personal website — a space where I share my work, passions, and projects. 
@@ -68,9 +71,30 @@ function App() {
       >
         <h3 className="text-3xl font-semibold text-center mb-12">Portfolio</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white shadow-md rounded-xl p-6">Project 1</div>
-          <div className="bg-white shadow-md rounded-xl p-6">Project 2</div>
-          <div className="bg-white shadow-md rounded-xl p-6">Project 3</div>
+          <Link to="/graphic-design">
+            <motion.div
+              whileHover={{ scale: 1.07, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              className="bg-white shadow-md rounded-xl p-6 cursor-pointer hover:scale-105 hover:shadow-xl transition-transform duration-300"
+            >
+              Graphic Design
+            </motion.div>
+          </Link>
+          <Link to="/brand-marketing">
+            <motion.div
+              whileHover={{ scale: 1.07, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              className="bg-white shadow-md rounded-xl p-6 cursor-pointer hover:scale-105 hover:shadow-xl transition-transform duration-300"
+            >
+              Brand Marketing
+            </motion.div>
+          </Link>
+          <Link to="/acting-modeling">
+            <motion.div
+              whileHover={{ scale: 1.07, boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}
+              className="bg-white shadow-md rounded-xl p-6 cursor-pointer hover:scale-105 hover:shadow-xl transition-transform duration-300"
+            >
+              Acting/Modeling
+            </motion.div>
+          </Link>
         </div>
       </motion.section>
 
@@ -86,9 +110,10 @@ function App() {
         <h3 className="text-3xl font-semibold text-center mb-12">Photos</h3>
         <div className="max-w-4xl mx-auto">
           <Swiper
-            modules={[Autoplay, Pagination]}
+            modules={[Autoplay, Pagination, Navigation]}
             autoplay={{ delay: 3000 }}
             pagination={{ clickable: true }}
+            navigation={true}
             loop={true}
             className="rounded-xl shadow-lg"
           >
@@ -118,7 +143,7 @@ function App() {
         <h3 className="text-3xl font-semibold mb-6">Get in Touch</h3>
         <p className="mb-8">Interested in working together or just want to connect? Reach out below:</p>
         <a 
-          href="mailto:quentin@example.com" 
+          href="mailto:quentinglee13@gmail.com" 
           className="px-6 py-3 bg-white text-black rounded-2xl shadow-lg hover:bg-gray-200 transition"
         >
           Email Me
