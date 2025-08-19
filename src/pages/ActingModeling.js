@@ -9,7 +9,7 @@ export default function ActingModeling() {
     },
     {
       img: "https://via.placeholder.com/400x500?text=Modeling+1",
-      title: "Runway Show",
+      title: "Brand Representation",
       desc: "Walking the runway at LA Fashion Week."
     },
     {

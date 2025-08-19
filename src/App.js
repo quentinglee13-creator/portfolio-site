@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +8,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => setMenuOpen((open) => !open);
+  const handleMenuClose = () => setMenuOpen(false);
+
   return (
     <>
       <main className="min-h-screen bg-white text-gray-900 scroll-smooth">
@@ -18,12 +24,27 @@ function App() {
           <li><a href="#photos" className="hover:text-gray-500">Photos</a></li>
           <li><a href="#contact" className="hover:text-gray-500">Contact</a></li>
         </ul>
-        {/* Mobile menu button (future: add menu functionality) */}
-        <button className="sm:hidden ml-auto p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400" aria-label="Open menu">
+        {/* Mobile menu button */}
+        <button
+          className="sm:hidden ml-auto p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-400"
+          aria-label="Open menu"
+          onClick={handleMenuToggle}
+        >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+        {/* Mobile menu dropdown */}
+        {menuOpen && (
+          <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex flex-col" onClick={handleMenuClose}>
+            <div className="bg-white shadow-lg rounded-b-xl mx-4 mt-4 p-6 flex flex-col space-y-6 text-lg font-medium" onClick={e => e.stopPropagation()}>
+              <a href="#about" className="hover:text-gray-500" onClick={handleMenuClose}>About</a>
+              <a href="#portfolio" className="hover:text-gray-500" onClick={handleMenuClose}>Portfolio</a>
+              <a href="#photos" className="hover:text-gray-500" onClick={handleMenuClose}>Photos</a>
+              <a href="#contact" className="hover:text-gray-500" onClick={handleMenuClose}>Contact</a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
